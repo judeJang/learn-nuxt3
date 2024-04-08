@@ -1,0 +1,12 @@
+{
+    "eslint.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "editor.tabSize": 2,
+    "vue.autoInsert.parentheses": false,
+    "vue.server.hybridMode": false,
+    "vue.autoInsert.dotValue": true,
+    "vue.format.script.initialIndent": false,
+    
+}
