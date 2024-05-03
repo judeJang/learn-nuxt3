@@ -57,7 +57,7 @@
         unelevated
         :outline="completed ? false : true"
         :icon="completed ? 'check' : undefined"
-        @click="completed = !completed"
+        @click="toggleComplete()"
       />
       <q-input
         v-model="memo"
@@ -103,6 +103,16 @@ const route = useRoute();
 const { course, prevCourse, nextCourse } = useCourse(
   route.params.courseSlug as string,
 );
+console.log('server error1 :', process.server);
+if (!course) {
+  console.log('server error2 :', process.server);
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Course not found',
+    fatal: true, // 클라이언트 에러도 서버에러로
+  });
+}
+
 definePageMeta({
   key: (route) => route.fullPath,
   title: 'My Home page',
@@ -116,6 +126,10 @@ const completed = ref(false);
 
 const movePage = async (path: string) => {
   await navigateTo(path);
+};
+
+const toggleComplete = () => {
+  // $fetch('/api/error'); nuxt helper backend 접근
 };
 </script>
 

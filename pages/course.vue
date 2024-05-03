@@ -28,6 +28,11 @@
             <q-item to="/course/prefetching-3">prefeching3</q-item> 
             -->
           </q-list>
+          <q-item v-ripple clickable to="/course/empty">
+            <q-item-section>
+              Empty Couse client error1(throw error)
+            </q-item-section>
+          </q-item>
         </q-card>
       </div>
       <div class="col">
